@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         binding.recyclerViewRestaurants.adapter = restaurantAdapter
 
         binding.btnPedidos.setOnClickListener {
-            val intent = Intent(this, "OrderListActivity"::class.java)
+            val intent = Intent(this, OrderListActivity::class.java)
             startActivity(intent)
         }
 

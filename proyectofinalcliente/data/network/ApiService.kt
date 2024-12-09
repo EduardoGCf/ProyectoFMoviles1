@@ -1,8 +1,8 @@
 package com.example.proyectofinalcliente.data.network
 
+import com.example.deliveryapp.data.model.Order
 import com.example.proyectofinalcliente.data.models.AuthResponse
 import com.example.proyectofinalcliente.data.models.LoginRequest
-import com.example.proyectofinalcliente.data.models.Order
 import com.example.proyectofinalcliente.data.models.OrderRequest
 import com.example.proyectofinalcliente.data.models.Product
 import com.example.proyectofinalcliente.data.models.Restaurant
@@ -11,6 +11,7 @@ import com.example.proyectofinalcliente.data.models.User
 import retrofit2.http.Body
 import retrofit2.http.POST
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
 
@@ -25,7 +26,8 @@ interface ApiService {
     fun getRestaurants(): Call<List<Restaurant>>
 
     @GET("orders")
-    fun getOrders(): Call<List<Order>>
+    suspend fun getOrders(): Response<List<Order>>
+
 
     @GET("restaurants/{restaurant_id}")
     fun getRestaurantMenu(
